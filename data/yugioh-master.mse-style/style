@@ -22,22 +22,22 @@ styling field:
 	name: name color
 	description: Customize the color of the card name.卡片名颜色设置，如果为default，则根据卡片类型和罕见度自动调整
 	initial: rgb(254,254,254)
-	choice: 
+	choice:
 		name: default
 		color:rgb(254,254,254)
-	choice: 
+	choice:
 		name: white
 		color: rgb(255,255,255)
-	choice: 
+	choice:
 		name: red
 		color: rgb(60,0,0)
-	choice: 
+	choice:
 		name: silver
 		color: rgb(230,230,230)
 	choice:
 		name: ligth bule
 		color: rgb(211,252,252)
-	choice: 
+	choice:
 		name: gold
 		color: rgb(216,199,53)
 #styling field:
@@ -50,22 +50,22 @@ styling field:
 	name: shadow color
 	description: The shadow color for card name.卡片名阴影颜色设置，如果为default，则根据卡片类型和罕见度自动调整
 	initial: rgb(1,1,1)
-	choice: 
+	choice:
 		name: default
 		color: rgb(1,1,1)
-	choice: 
+	choice:
 		name: black
 		color: rgb(0,0,0)
-	choice: 
+	choice:
 		name: white
 		color: rgb(255,255,255)
-	choice: 
+	choice:
 		name: red
 		color: rgb(60,0,0)
-	choice: 
+	choice:
 		name: silver
 		color: rgb(230,230,230)
-	choice: 
+	choice:
 		name: gold
 		color: rgb(216,199,53)
 styling field:
@@ -140,6 +140,7 @@ card style:
 			fusion monster: card-fusion.png
 			token monster: card-token.png
 			xyz monster: card-xyz.png
+			link monster: card-link.png
 			obelisk: card-obelisk.png
 			slifer: card-slifer.png
 			ra: card-ra.png
@@ -149,14 +150,14 @@ card style:
 	foils:
 		left:
 			script:
-				if foil_is_full() then 0 
+				if foil_is_full() then 0
 				else if is_transparent() then 14
 				else if image_noframe() and is_nopendulum() then 44
 				else if is_nopendulum() then 51.6
 				else 29.5
 		top:
 			script:
-				if foil_is_full() then 0 
+				if foil_is_full() then 0
 				else if is_transparent() then 14
 				else if image_noframe() and is_nopendulum() then 105
 				else if is_nopendulum() then 113
@@ -204,10 +205,10 @@ card style:
 		font:
 			name:
 				script:
-					if is_tw() then "DFPLiShuW5-B5" 
-					else if is_jp() then "Yu-Gi-Oh! DFG Leisho 4" 
-					else if is_ko() then "KoreanYSB" 
-					else if is_cn() then "方正隶变_GBK" 
+					if is_tw() then "DFPLiShuW5-B5"
+					else if is_jp() then "Yu-Gi-Oh! DFG Leisho 4"
+					else if is_ko() then "KoreanYSB"
+					else if is_cn() then "方正隶变_GBK"
 					else "MatrixRegularSmallCaps"
 			italic name: { if is_tw() then "Yu-Gi-Oh! DFG Leisho 5" else "Yu-Gi-Oh! DFG Leisho 4" }
 			size: { if is_tw() or is_cn() or is_jp() then 24 else if is_ko() then 27 else 29 }
@@ -226,11 +227,11 @@ card style:
 				else if card.rarity=="ultimate rare (No foil)" then rgb(69,60,0)
 				else if card.rarity=="parallel rare" then rgb(88,76,12)
 				else if card.rarity=="gold rare" then rgb(88,76,12)
-				else if is_blmonster() then rgb(255,255,255) 
-				else if is_nmonster() then rgb(255,255,255) 
+				else if is_blmonster() then rgb(255,255,255)
+				else if is_nmonster() then rgb(255,255,255)
 				else rgb(0,0,0)
-			shadow color: 
-				script: 
+			shadow color:
+				script:
 					if no_shadow() then rgba(0,0,0,0) #没阴影
 					else if set_shadow() then  styling.shadow_color  #自定义阴影颜色
 					else if card.rarity=="star rare" and is_blmonster() then rgb(255,255,255)
@@ -273,35 +274,35 @@ card style:
 			spell: { "attribute/spell_"+get_lang_ex()+".png"}
 			trap: { "attribute/trap_"+get_lang_ex()+".png"}
 	level:
-		left: 
+		left:
 			script:
-			if is_12star() then if card.card_type == "dark synchro monster" then "36" else "41" 
-			else if is_13star() then if card.card_type == "dark synchro monster" then "22" else "27" 
+			if is_12star() then if card.card_type == "dark synchro monster" then "36" else "41"
+			else if is_13star() then if card.card_type == "dark synchro monster" then "22" else "27"
 			else "44"
 		top : 72
 		height: 32.5
 		width:
 			script:
 				if is_nmonster() then "331"
-				else if is_12star() then if card.card_type == "dark synchro monster" then "348" else "338" 
-				else if is_13star() then if card.card_type == "dark synchro monster" then "376" else "366" 
+				else if is_12star() then if card.card_type == "dark synchro monster" then "348" else "338"
+				else if is_13star() then if card.card_type == "dark synchro monster" then "376" else "366"
 				else "334.5"
 		z index: 3
 		alignment: { if is_blmonster() then "middle left" else "middle right" }
 		font:
-			name: 
+			name:
 				script:
 					if st_has_text() then "Yu-Gi-Oh! DFG Leisho 4"
 					else if is_tw() then "DFPLiShuW5-B5"
 					else if is_ko() then "SD Book-B"
-					else if is_cn() then "方正隶变_GBK" 
+					else if is_cn() then "方正隶变_GBK"
 					else "MatrixBoldSmallCaps"
 			italic name: Matrix
 			size:
 				script:
 					if st_has_text() then 16.5
-					else if is_ko() then 18 
-					else if is_en() then 19 
+					else if is_ko() then 18
+					else if is_en() then 19
 					else 18
 			color: rgb(0,0,0)
 		symbol font:
@@ -310,8 +311,8 @@ card style:
 			scale down to: 1
 			size:
 				script:
-					if is_nmonster() then 
-						if st_has_text() then 
+					if is_nmonster() then
+						if st_has_text() then
 							if is_jp() then 6.4
 							else if is_cn() or is_tw() then 6
 							else if is_en() then 8
@@ -319,6 +320,7 @@ card style:
 							else 8
 						else 8
 					else 8
+		visible: script: if is_link() then false else true
 	############################# Image
 	image:
 		left:
@@ -357,7 +359,7 @@ card style:
 		left: { if is_jp() then 32 else 34 }
 		top :
 			script:
-				if is_big_pend() then 
+				if is_big_pend() then
 					if is_en() then 477 else 479
 				else
 					if is_en() then 460 else 463
@@ -368,10 +370,10 @@ card style:
 		font:
 			name:
 				script:
-					if is_tw() then "DFPLiShuW5-B5" 
-					else if is_jp() then "Yu-Gi-Oh! DFG Leisho 4" 
+					if is_tw() then "DFPLiShuW5-B5"
+					else if is_jp() then "Yu-Gi-Oh! DFG Leisho 4"
 					else if is_ko() then "SD Book-B"
-					else if is_cn() then "方正隶变_GBK" 
+					else if is_cn() then "方正隶变_GBK"
 					else "Yu-Gi-Oh!ITCStoneSerifSmallCapsBold"
 			italic name: { if is_en() or is_ko() then "ITC Stone Serif" else if is_cn() then "DFPLiShuW5-B5" else "Yu-Gi-Oh! DFG Leisho 4" }
 			size: { if is_cn() then 13.5 else if is_jp() or is_tw() then 13 else 12.5 }
@@ -413,10 +415,10 @@ card style:
 		height:
 			script: if is_nmonster() then 110 else  if is_big_pend() then 57 else 73
 		font:
-			name: 
+			name:
 				script:
-					if is_tw() then "DFPLiShuW5-B5" 
-					else if is_jp() then "Yu-Gi-Oh! DF Leisho 3" 
+					if is_tw() then "DFPLiShuW5-B5"
+					else if is_jp() then "Yu-Gi-Oh! DF Leisho 3"
 					else if is_ko() then "SD Book-L"
 					else if is_cn() then "方正隶变_GBK"
 					else "MatrixBook"
@@ -441,9 +443,9 @@ card style:
 		line height line max: 1.1
 	############################# Attack/Defense
 	attack:
-		left: 244
+		left: 263.5
 		top: 553.6
-		width: 56
+		width: 38
 		height: 21.5
 		z index: 3
 		alignment: right middle
@@ -458,9 +460,9 @@ card style:
 			size: 3
 		visible: script: if is_nmonster() then false else true
 	defense:
-		left: 329.5
+		left: 350
 		top: 553.6
-		width: 56
+		width: 38
 		height: 21.5
 		z index: 3
 		alignment: right middle
@@ -473,7 +475,113 @@ card style:
 			name: yugioh-text-replacements
 			alignment: middle center
 			size: 3
-		visible: script: if is_nmonster() then false else true
+		visible: script: if is_nmonster() or is_link() then false else true
+	############################# Link
+	link number:
+		left: 375.5
+		top: 553.6
+		height: 21.5
+		width: 12
+		z index: 3
+		alignment: right middle
+		font:
+			name: Eurostile Candy W01 Semibold
+			size: 12.5
+			color: rgb(20,20,20)
+		symbol font:
+			name: yugioh-text-replacements
+			alignment: shrink-overflow middle center
+			size: 7
+		visible: script: if is_nmonster() or not is_link() then false else true
+	###################### Link markers
+	Link Marker Up:
+		left: 163.5
+		top: 89.5
+		width: 93.5
+		height: 22.5
+		z index: 5
+		render style: image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_u.png
+		visible: script: if is_link() then true else false
+	Link Marker UL:
+		left: 36.5
+		top: 97
+		width: 38
+		height: 38
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_ul.png
+		visible: script: if is_link() then true else false
+	Link Marker UR:
+		left: 347.5
+		top: 97
+		width: 38
+		height: 38
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_ur.png
+		visible: script: if is_link() then true else false
+	Link Marker Down:
+		left: 164
+		top: 429.5
+		width: 93.5
+		height: 22.5
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_d.png
+		visible: script: if is_link() then true else false
+	Link Marker DL:
+		left: 36.5
+		top: 406.5
+		width: 38
+		height: 38
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_dl.png
+		visible: script: if is_link() then true else false
+	Link Marker DR:
+		left: 347
+		top: 406.5
+		width: 38
+		height: 38
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_dr.png
+		visible: script: if is_link() then true else false
+	Link Marker Left:
+		left: 29
+		top: 224
+		width: 22.5
+		height: 93.5
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_l.png
+		visible: script: if is_link() then true else false
+	Link Marker Right:
+		left: 370.5
+		top: 224
+		width: 22.5
+		height: 93.5
+		z index: 5
+		render style:image
+		popup style: in place
+		choice images:
+			yes: series10/link_marker_on_r.png
+		visible: script: if is_link() then true else false
 	############################# Card sorting / numbering
 	############################# Copyright stuff
 	rarity:
@@ -503,8 +611,8 @@ card style:
 		render style: image list
 		choice images:
 			stamp:
-				script: if no_corner() then "blank2.png" 
-				else if card.rarity=="gold tech" then "cornerfirst.png" 
+				script: if no_corner() then "blank2.png"
+				else if card.rarity=="gold tech" then "cornerfirst.png"
 				else if card.rarity=="common" then "cornerdefault.png"
 				else "cornerunlimited.png"
 	copyright:
@@ -521,9 +629,9 @@ card style:
 	###################### pendulum
 	pendulum:
 		left: 14.5
-		top: 273
+		top: { if is_link() then 316.5 else 273 }
 		width: 392
-		height: 175
+		height: { if is_link() then 86 else 175 }
 		z index: -1
 		render style:image list
 		popup style: in place
@@ -534,13 +642,13 @@ card style:
 		width: script: if is_nopendulum() then 0 else 288
 		height: script: if is_small_pend() then 42 else if is_big_pend() then 79 else 63
 		font:
-			name: 
+			name:
 				script:
-					if is_tw() then "DFPLiShuW5-B5" 
-					else if is_jp() then "Yu-Gi-Oh! DF Leisho 3" 
+					if is_tw() then "DFPLiShuW5-B5"
+					else if is_jp() then "Yu-Gi-Oh! DF Leisho 3"
 					else if is_ko() then "SD Book-L"
-					else if is_cn() then "方正隶变_GBK"					
-					else "MatrixBook" 
+					else if is_cn() then "方正隶变_GBK"
+					else "MatrixBook"
 			size: { if is_ko() then "8" else if is_en() then "10" else "9" }
 			scale down to: 5
 			color: rgb(0,0,0)
@@ -842,14 +950,14 @@ extra card style:
 		choice images:
 			image:
 				script:
-					if is_pendulum() then 
-						if is_en() then "enCopyrihtBlack.png" 
+					if is_pendulum() then
+						if is_en() then "enCopyrihtBlack.png"
 						else "jpCopyrihtBlack.png"
-					else if is_blmonster() then 
-						if is_en() then "enCopyrihtWhite.png" 
+					else if is_blmonster() then
+						if is_en() then "enCopyrihtWhite.png"
 						else "jpCopyrihtWhite.png"
-					else 
-						if is_en() then "enCopyrihtBlack.png" 
+					else
+						if is_en() then "enCopyrihtBlack.png"
 						else "jpCopyrihtBlack.png"
 		visible: script: if copyright_is_image() then true else false
 	pendulum line:
@@ -871,7 +979,7 @@ extra card style:
 					else if card.card_type=="token monster" then "pendulum/line-token.png"
 					else if card.card_type=="token card" then "pendulum/line-token.png"
 					else "blank2.png"
-		visible: script: if is_nopendulum() then false else true	
+		visible: script: if is_nopendulum() then false else true
 	pendulum text bg:
 		left: 31
 		top: script: if is_small_pend() then 406 else 383
@@ -882,7 +990,7 @@ extra card style:
 				else if is_medium_pend() then  74
 				else 54
 		z index: 0
-		visible: script: if is_nopendulum() then false else if pend_image_is_small() then true else false	
+		visible: script: if is_nopendulum() then false else if pend_image_is_small() then true else false
 	pendulum border:
 		left: 19
 		top: 100
@@ -893,8 +1001,8 @@ extra card style:
 		choice images:
 			image:
 				script:
-					if is_big_pend() then "pendulum/pendulum_lg.png" 
-					else if is_medium_pend() then "pendulum/pendulum_md.png" 
+					if is_big_pend() then "pendulum/pendulum_lg.png"
+					else if is_medium_pend() then "pendulum/pendulum_md.png"
 					else "pendulum/pendulum_sm.png"
 		visible: script:	if is_nopendulum() then false else true
 	######## foil
@@ -907,11 +1015,11 @@ extra card style:
 		render style: image
 		choice images:
 			image: foil/image.png
-		visible: 
-			script: 
-			if image_noframe() then false 
-			else if is_transparent() then false 
-			else if is_nopendulum() and card.rarity=="gold tech" then true 
+		visible:
+			script:
+			if image_noframe() then false
+			else if is_transparent() then false
+			else if is_nopendulum() and card.rarity=="gold tech" then true
 			else false
 	foil desc border:
 		left: 23
@@ -933,8 +1041,8 @@ extra card style:
 		choice images:
 			image:
 				script:
-					if is_big_pend() then "foil/pend_b.png" 
-					else if is_medium_pend() then "foil/pend_m.png" 
+					if is_big_pend() then "foil/pend_b.png"
+					else if is_medium_pend() then "foil/pend_m.png"
 					else "foil/pend_s.png"
 		visible: script:	if is_nopendulum() then false else if card.rarity=="gold tech" then true else false
 	foil card border:
@@ -956,9 +1064,9 @@ extra card style:
 		z index: 6
 		render style: image
 		choice images:
-			image: 
-				script: 
-					if styling.cover_image=="none" then "blank2.png" 
+			image:
+				script:
+					if styling.cover_image=="none" then "blank2.png"
 					else "cover/"+styling.cover_image+".png"
 		visible: script: if styling.cover_image=="none" then false else true
 	#############################
