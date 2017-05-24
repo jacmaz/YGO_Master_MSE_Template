@@ -8,7 +8,7 @@ pack type:
 	filter: card.rarity == "common"
 pack type:
 	name: gold
-	filter: card.rarity == "gold tech"
+	filter: card.rarity == "gold tech" or card.rarity == "gold rare"
 pack type:
 	name: card
 	filter: card.number != ""
