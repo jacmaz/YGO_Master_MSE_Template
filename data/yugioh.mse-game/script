@@ -1,8 +1,10 @@
 ﻿
 	# 
+	is_11star :={ remove_tags(card.level) == "***********" }
 	is_12star :={ remove_tags(card.level) == "************" }
 	is_13star :={ remove_tags(card.level) == "*************" }	
 	is_blmonster := {card.card_type == "dark synchro monster" or card.card_type == "xyz monster"}
+	is_link := {card.card_type == "link monster"}
 	is_tw := { set.language == "TW" }
 	is_cn := { set.language == "CN" }
 	is_en := { set.language == "EN" }
@@ -10,6 +12,9 @@
 	is_ko := { set.language == "KO" }
 
 	hide_gamecode := {set.hide_gamecode == "yes"}
+	hide_copyright := {set.hide_copyright == "yes"}
+	hide_edition := {set.hide_edition == "yes"}
+	hide_number := {set.hide_number == "yes"}
 	st_has_text :={ set.ST_mark_is_text=="yes"}
 	
 	get_sep := {if is_en() or is_ko() then " / " else if is_cn()then "<i>／</i>" else "／" }
@@ -22,6 +27,7 @@
 	get_lang_ex := { if is_tw() then "cn" else get_lang() }
 	
 	copyright_is_image := {set.copyright_images=="yes"}
+	edition_is_image := {set.edition_images=="yes"}
 	pend_image_is_small :={ set.pendulum_image_is_small=="yes"}
 	no_corner := { set.no_corner=="yes"}
 #	cannot_pendulum := {
@@ -214,7 +220,9 @@
 		else if card.rarity == "secret rare"	then "secret holo image"
 		else if card.rarity == "ultimate rare"	then "holo image"
 		else if card.rarity == "parallel rare"	then "parallel holo image"
-		else if card.rarity == "gold tech"	then "gold tech holo image"
+		else if card.rarity == "gold rare"	then "gold holo image"
+		else if card.rarity == "millenium rare"	then "millenium holo image"
+		else if card.rarity == "kaiba corporation rare"	then "kaibacorp holo image"
 		else if card.rarity == "promo"		then "secret holo image"
 		else if card.rarity == "star rare"	then "star holo image"
 		else if card.rarity == "mosaic rare"	then "mosaic holo image"
@@ -230,7 +238,9 @@
 	is_nmonster := {
 		card.card_type == "spell card" or
 	    card.card_type == "trap card" or 
-		card.card_type == "token card"
+		card.card_type == "token card" or
+		card.card_type == "dragons card" or
+		card.card_type == "speed spell card"
 	}
 	is_monster := {
 		not is_nmonster()
@@ -247,7 +257,8 @@
 	is_spell_card := {
 		card.card_type == "spell card"	or
 		card.attribute == "spell"	or
-		card.level     == "Spell"
+		card.level     == "Spell" or
+		card.card_type == "speed spell card"
 	}
 	is_trap_card := {
 	    card.card_type == "trap card"	or
@@ -270,9 +281,11 @@
 		else if chosen(choice:"token monster", type) then "J"
 		else if chosen(choice:"token card", type) then "K"
 		else if chosen(choice:"spell card", type) then "L"
-		else if chosen(choice:"trap card", type) then "M"
-		else if chosen(choice:"xyz monster", type) then "L"
-		else "N"
+		else if chosen(choice:"speed spell card", type) then "M"
+		else if chosen(choice:"trap card", type) then "N"
+		else if chosen(choice:"xyz monster", type) then "O"
+		else if chosen(choice:"dragons card", type) then "P"
+		else "Q"
 	}
 	
 	pos_of_card := {

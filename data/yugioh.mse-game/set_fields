@@ -8,11 +8,11 @@ set field:
 	name: title
 	default: "noname"
 	identifying: true
-	description: 套牌标题
+	description: Deck title. 套牌标题
 set field:
 	type: choice
 	name: language
-	initial: TW
+	default: "EN"
 	choice: CN
 	choice: TW
 	choice: JP
@@ -21,13 +21,18 @@ set field:
 	description: such as: XXX-JP101、XX01-EN101
 set field:
 	type: text
+	name: code
+	default: "-EN"
+	description: Recommend only 2 Capital digits. Will appear before card language.
+set field:
+	type: text
 	name: edition
-	default: "MSE Edition"
+	default: "LIMITED EDITION"
 	description: such as "DUEL TERMINAL"
 set field:
 	type: text
 	name: author
-	default: "Your Name"
+	default: "Juan-K"
 	description: 247321453
 set field:
 	type: text
@@ -37,6 +42,7 @@ set field:
 set field:
 	type: text
 	name: copyright
+	default: "©1996 KAZUKI TAKAHASHI"
 	description: Copyright information. This will not appear on the card.
 set field:
 	type: info
@@ -45,32 +51,52 @@ set field:
 	type: boolean
 	name: gods have effects
 	description: Should god cards have effects? 神的效果文不是斜体？（仅英文有效）
-	initial: yes
+	initial: true
 set field:
 	type: boolean
 	name: no corner
 	description: Should have not corner? 没有防伪标志
-	initial: no
+	initial: false
 set field:
 	type: boolean
 	name: hide gamecode
-	description: 隐藏密码，最好先写好密码，再导出的时候再设置这个
-	initial: no
+	description: Hide password , it is best to write the password , and then re- exported when this setting. 隐藏密码，最好先写好密码，再导出的时候再设置这个
+	initial: false
+set field:
+	type: boolean
+	name: hide copyright
+	description: Hide password , it is best to write the password , and then re- exported when this setting. 隐藏密码，最好先写好密码，再导出的时候再设置这个
+	initial: false
+set field:
+	type: boolean
+	name: hide edition
+	description: Hide password , it is best to write the password , and then re- exported when this setting. 隐藏密码，最好先写好密码，再导出的时候再设置这个
+	initial: false
+set field:
+	type: boolean
+	name: hide number
+	description: Hide password , it is best to write the password , and then re- exported when this setting. 隐藏密码，最好先写好密码，再导出的时候再设置这个
+	initial: false
 set field:
 	type: boolean
 	name: ST mark is text
-	description: 魔法陷阱的符号带标志文字？用于OCG制作
-	initial: no
+	description: Magic traps symbol with flag text ? Production for OCG. 魔法陷阱的符号带标志文字？用于OCG制作
+	initial: false
 set field:
 	type: boolean
 	name: copyright images
-	description: 版权文字为图片？用于OCG
-	initial: no
+	description: Text copyright for the picture ? For OCG. 版权文字为图片？用于OCG
+	initial: false
+set field
+	type: boolean
+	name: edition images
+	description: use 1st edition image
+	initial: false
 set field:
 	type: boolean
 	name: pendulum image is small
-	description: pendulum image is small? Pendulum怪兽的中间图，不包含P的描述区域？用于YGOCORE
-	initial: no
+	description: pendulum image is small? Pendulum. 怪兽的中间图，不包含P的描述区域？用于YGOCORE
+	initial: yes
 ############################# Default style
 default set style:
 	Set Options:

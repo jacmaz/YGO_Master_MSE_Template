@@ -23,13 +23,19 @@ word list:
 	word: Reptile
 	word: Psychic
 	word: Divine-Beast
-	word: Created-Divine
+	word: Creator God
 	word: Wyrm
+	word: Charisma
+	word: Effect
+	word: Token
+	word: Immortal
+	word: Cyberse
 word list:
 	name: ENeffect
 	word: Synchro
 	word: Xyz
 	word: Fusion
+	word: Link
 	word: Ritual
 	word: Effect
 	word: Tuner
@@ -43,3 +49,4 @@ word list:
 	word: Dark Tuner
 	word: Special Summon
 	word: Token
+	word: Deck Master

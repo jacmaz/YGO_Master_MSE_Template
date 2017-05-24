@@ -48,3 +48,6 @@ auto replace:
 auto replace:
 	match: DT
 	replace:DUEL TERMINAL
+auto replace:
+	match: 1E
+	replace: 1st Edition

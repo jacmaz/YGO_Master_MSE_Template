@@ -12,12 +12,14 @@ card field:
 	choice: fusion monster
 	choice: token monster
 	choice:	xyz monster
+	choice: link monster
 	choice: obelisk
 	choice: slifer
 	choice: ra
-	choice: token card
 	choice: spell card
 	choice: trap card
+	choice: speed spell card
+	choice: dragons card
 	description: Selected Card Type. 选择卡片类型
 #   为了适应DataEditorX的存档制作
 #	default: card_type()
@@ -30,12 +32,14 @@ card field:
 		fusion monster:	   rgb(108,34,108)
 		token monster:	   rgb(98,98,98)		
 		xyz monster:   rgb(0,0,0)
+		link monster: rgb(64,64,158)
 		obelisk:	   rgb(64,64,158)
 		slifer:		   rgb(198,30,64)
 		ra:		   rgb(225,225,0)
 		spell card:	   rgb(10,128,0)
 		trap card:	   rgb(235,30,128)
 		token card:		rgb(98,98,98)
+		speed spell card:	rgb(10,128,0)
 card field:
 	type: choice
 	name: foils
@@ -45,9 +49,12 @@ card field:
 	choice: secret holo image
 	choice: ultimate holo image
 	choice: parallel holo image
+	choice: Ghost Holo image
 	choice: gold holo image
 	choice: star holo image
 	choice: mosaic holo image
+	choise: millenium holo image
+	choise: kaibacorp holo image
 	default: foil()
 ############################# Name line
 card field:
@@ -58,7 +65,7 @@ card field:
 	card list visible: true
 	card list column: 1
 	script: name_filter(value)
-	description: 卡片名
+	description: Card name. 卡片名
 card field:
 	type: choice
 	name: attribute
@@ -72,6 +79,10 @@ card field:
 	choice: divine
 	choice: spell
 	choice: trap
+	choice: start
+	choice: one
+	choice: two
+	choice: three
 	default: attribute()
 	card list visible: true
 	card list column: 2
@@ -159,8 +170,8 @@ card field:
 			field3: card.type_3,
 			separator3: get_sepex(card.type_4),
 			field4: card.type_4,
-			prefix: if remove_tags(card.type_1)=="    " then "" else if is_jp() then "【" else if is_en() then "[" else "<sym-auto>[</sym-auto>",
-			suffix: if remove_tags(card.type_1)=="    " then "" else if is_jp() then "】" else if is_en() then "]" else "<sym-auto>]</sym-auto>",
+			prefix: if remove_tags(card.type_1)=="    " then "" else if is_jp() then "【 " else if is_en() then "[ " else "<sym-auto>[</sym-auto>",
+			suffix: if remove_tags(card.type_1)=="    " then "" else if is_jp() then " 】" else if is_en() then " ]" else "<sym-auto>]</sym-auto>",
 			soft_before_empty: true,
 			hide_when_empty: true
 		)
@@ -171,17 +182,11 @@ card field:
 card field:
 	type: text
 	name: number
-#	script: 
-#		set.code
-#		+ "-" +
-#		set.language +
-#		if pos_of_card()<=9 then "00" + pos_of_card(value) else
-#		if pos_of_card()>=9 and pos_of_card()<=99 then "0" + pos_of_card(value) else
-#		if pos_of_card()>=999 then "999" else pos_of_card(value)
+	default: set.code
 	card list visible: true
 	card list column: 6
 	card list width: 55
-	card list name: #
+	card list name: set ID
 	editable: true
 	save value: true
 	show statistics: false
@@ -237,6 +242,63 @@ card field:
 	name: pendulum scale 2
 	save value: true
 	show statistics: false
+############################# Link Markers
+card field:
+	type: choice
+	name: Link Marker Up
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker UL
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker UR
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker Down
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker DL
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker DR
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker Left
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
+card field:
+	type: choice
+	name: Link Marker Right
+	choice: none
+	choice: yes
+	save value: yes
+	show statistics: false
 ############################# Attack/Defense
 card field:
 	type: text
@@ -258,23 +320,61 @@ card field:
 	card list width: 33
 	card list name: DEF
 	description: & = unlimited 无限
+############################ Link
+card field:
+	type: text
+	name: link number
+	save value: true
+	script: a_and_d_filter(value)
+	card list visible: true
+	card list column: 5
+	card list name: Link
+	card list width: 33
 ############################# Copyright stuff
 card field:
 	type: choice
 	name: rarity
 	show statistics: true
 	choice: common
-	choice: rare
-	choice: super rare
-	choice: ultra rare
-	choice: secret rare
-	choice: ultimate rare
-	choice: ultimate rare (No foil)
-	choice: parallel rare
-	choice: ghost rare (No foil)
-	choice: gold tech
-	choice: star rare
+	choice: normal parallel rare
+	choice: duel terminal normal parallel rare
+	choice: starfoil rare
 	choice: mosaic rare
+	choice: shatterfoil rare
+	choice: kaiba corporation common
+	choice: rare
+	choice: duel terminal rare parallel rare
+	choice: kaiba corporation rare
+	choice: super rare
+	choice: super parallel rare
+	choice: duel terminal super parallel rare
+	choice: millenium super rare
+	choice: ultra rare (DUSA)
+	choice: ultra rare
+	choice: ultra parallel rare
+	choice: duel terminal ultra parallel rare
+	choice: millenium ultra rare
+	choice: kaiba corporation ultra rare
+	choice: ultra secret rare
+	choice: gold rare
+	choice: gold rare (2017)
+	choice: collectors rare
+	choice: platinum rare
+	choice: prismatic secret rare
+	choice: secret rare
+	choice: platinum secret rare (2014)
+	choice: platinum secret rare (2015)
+	choice: secret ultra rare
+	choice: gold secret rare
+	choice: gold secret rare (2017)
+	choice: millenium gold rare
+	choice: secret parallel rare
+	choice: duel terminal secret parallel rare
+	choice: platinum secret parallel rare
+	choice: ultimate rare
+	choice: ghost rare
+	choice: gold ghost rare
+	choice: ghost parallel rare
 	choice: promo
 	card list visible: true
 	card list column: 7
