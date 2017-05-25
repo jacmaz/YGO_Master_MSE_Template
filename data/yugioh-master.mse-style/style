@@ -478,109 +478,117 @@ card style:
 		visible: script: if is_nmonster() or is_link() then false else true
 	############################# Link
 	link number:
-		left: 375.5
-		top: 553.6
-		height: 21.5
-		width: 12
-		z index: 3
+		left     : 375.5
+		top      : 553.6
+		height   : 21.5
+		width    : 12
+		z index  : 3
 		alignment: right middle
 		font:
-			name: Eurostile Candy W01 Semibold
-			size: 12.5
+			name : Eurostile Candy W01 Semibold
+			size : 12.5
 			color: rgb(20,20,20)
 		symbol font:
-			name: yugioh-text-replacements
+			name     : yugioh-text-replacements
 			alignment: shrink-overflow middle center
-			size: 7
+			size     : 7
 		visible: script: if is_nmonster() or not is_link() then false else true
 	###################### Link markers
 	Link Marker Up:
-		left: 163.5
-		top: 89.5
-		width: 93.5
-		height: 22.5
-		z index: 5
+		left        : 164
+		top         : 90.5
+		width       : { if is_link() then 92 else 0 }
+		height      : { if is_link() then 22.5 else 0 }
+		z index     : 5
 		render style: image
-		popup style: in place
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_u.png
+			yes : series10/link_marker_on_u.png
+			none: series10/link_marker_off_u.png
 		visible: script: if is_link() then true else false
 	Link Marker UL:
-		left: 36.5
-		top: 97
-		width: 38
-		height: 38
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 36
+		top         : 98.5
+		width       : { if is_link() then 39 else 0 }
+		height      : { if is_link() then 39 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_ul.png
+			yes : series10/link_marker_on_ul.png
+			none: series10/link_marker_off_ul.png
 		visible: script: if is_link() then true else false
 	Link Marker UR:
-		left: 347.5
-		top: 97
-		width: 38
-		height: 38
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 347.5
+		top         : 98.5
+		width       : { if is_link() then 39 else 0 }
+		height      : { if is_link() then 39 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_ur.png
+			yes : series10/link_marker_on_ur.png
+			none: series10/link_marker_off_ur.png
 		visible: script: if is_link() then true else false
 	Link Marker Down:
-		left: 164
-		top: 429.5
-		width: 93.5
-		height: 22.5
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 164
+		top         : 430
+		width       : { if is_link() then 92 else 0 }
+		height      : { if is_link() then 22.5 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_d.png
+			yes : series10/link_marker_on_d.png
+			none: series10/link_marker_off_d.png
 		visible: script: if is_link() then true else false
 	Link Marker DL:
-		left: 36.5
-		top: 406.5
-		width: 38
-		height: 38
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 36.5
+		top         : 406.5
+		width       : { if is_link() then 39 else 0 }
+		height      : { if is_link() then 39 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_dl.png
+			yes : series10/link_marker_on_dl.png
+			none: series10/link_marker_off_dl.png
 		visible: script: if is_link() then true else false
 	Link Marker DR:
-		left: 347
-		top: 406.5
-		width: 38
-		height: 38
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 347.5
+		top         : 406.5
+		width       : { if is_link() then 39 else 0 }
+		height      : { if is_link() then 39 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_dr.png
+			yes : series10/link_marker_on_dr.png
+			none: series10/link_marker_off_dr.png
 		visible: script: if is_link() then true else false
 	Link Marker Left:
-		left: 29
-		top: 224
-		width: 22.5
-		height: 93.5
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 29.5
+		top         : 225.5
+		width       : { if is_link() then 22.5 else 0 }
+		height      : { if is_link() then 92 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_l.png
+			yes : series10/link_marker_on_l.png
+			none: series10/link_marker_off_l.png
 		visible: script: if is_link() then true else false
 	Link Marker Right:
-		left: 370.5
-		top: 224
-		width: 22.5
-		height: 93.5
-		z index: 5
-		render style:image
-		popup style: in place
+		left        : 371.5
+		top         : 225.5
+		width       : { if is_link() then 22.5 else 0 }
+		height      : { if is_link() then 92 else 0 }
+		z index     : 5
+		render style: image
+		popup style : in place
 		choice images:
-			yes: series10/link_marker_on_r.png
+			yes : series10/link_marker_on_r.png
+			none: series10/link_marker_off_r.png
 		visible: script: if is_link() then true else false
 	############################# Card sorting / numbering
 	############################# Copyright stuff
@@ -630,8 +638,8 @@ card style:
 	pendulum:
 		left: 14.5
 		top: { if is_link() then 316.5 else 273 }
-		width: 392
-		height: { if is_link() then 86 else 175 }
+		width: { if is_link() then 0 else 392 }
+		height: { if is_link() then 0 else 175 }
 		z index: -1
 		render style:image list
 		popup style: in place
